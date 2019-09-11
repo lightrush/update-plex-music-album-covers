@@ -4,10 +4,21 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
+twine = "*"
+bumpversion = "*"
 
 [packages]
 mutagen = "*"
 click = "*"
+plexapi = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3"
+
+[scripts]
+clean = "rm -rf build dist update_plex_music_album_covers.egg-info"
+build = "python3 setup.py sdist bdist_wheel"
+publish = "python3 -m twine upload dist/*"
+bumpversion = "bumpversion"
+
